@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container">
+   <p>Please Enter the movie that you want to look up information about </p>
+    <form id = "formNewMovieSearch" name = "formNewMovieSearch" #movieData = "ngForm" (ngSubmit) = "userInput(movieData.value)">
+        <div class="form-group">
+            <label for="movieTitle">Movie Title:</label>
+            <div class="row">
+                <div class="col-md-6">    
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Movie Title" ngModel>
+                    <button type="submit" class="btn btn-primary" value = "movieTitle">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form> 
+ 
+    <div class="row" *ngIf="data.Title?.length > 0">
+    <div class= col-md-6>
+    <h2 id="movieTitle">{{data.Title}}</h2>
+    <p id="movieYear">Year movie release: {{data.Year}}</p>
+    <p>IMDB rated the movie: {{data.imdbRating}}</p>
+    <p>Movie was produced in: {{data.Country}}</p>
+    <p>Language: {{data.Language}}</p>
+    <p id="movieActor">Actors: <br> 
+          {{data.Actors}}</p>
+    <p id="moviePlot">Plot: {{data.Plot}}</p>
+    </div>
+    </div>
+</div>

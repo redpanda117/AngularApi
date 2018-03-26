@@ -1,19 +1,7 @@
-<div class="container">
-    <p>Please Enter the movie that you want to look up information about </p>
-    <form id = "formNewMovieSearch" name = "formNewMovieSearch" #movieData = "ngForm" (ngSubmit) = "userInput(movieData.value)">
-        <div class="form-group">
-            <label for="movieTitle">Movie Title:</label>
-            <input type="text" class="form-control" name="title" id="title" placeholder="Movie Title" ngModel>
-        </div>
-    </form> 
+<!--Thr router-outlet will rout the page to where the user is. 
+    So if user on the home page it will route to home component.s-->
     
-    <h2 id="movieTitle">{{data.Title}}</h2>
-    <p id="movieYear">Year movie release: {{data.Year}}</p>
-    <p>IMDB rated the movie: {{data.imdbRating}}</p>
-    <p>Movie was produced in: {{data.Country}}</p>
-    <p>Language: {{data.Language}}</p>
-    <p id="movieActor">Actors: <br> 
-          {{data.Actors}}</p>
-    <p id="moviePlot">Plot: {{data.Plot}}</p>
-</div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
 
