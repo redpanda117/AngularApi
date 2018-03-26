@@ -1,3 +1,28 @@
-<p>
-  twitter works!
-</p>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <p>
+    Enter a UserName to get the ten latest tweets.
+  </p>
+  <div class="row">
+    <div class="col-md-6">
+
+      <form id = "formNewTwitterSearch" name = "formNewTwitterSearch" #twitterData = "ngForm" (ngSubmit) = "inputtwitter(twitterData.value)">
+          <div class="form-group">
+              <label for="twitterName">Twitter Screen Name:</label>
+              <div class="row">
+                  <div class="col-md-6">    
+                      <input type="text" class="form-control" name="tweets" id="tweets" placeholder="UserName" ngModel>
+                      <button type="submit" class="btn btn-primary" value = "UserTweets">Submit</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+
+      <!-- <div *ngIf="data.tweets?.length > 0"> -->
+      
+          <ng4-twitter-timeline [dataSrc]="{sourceType: 'profile',screenName: 'KatyPerry'}" [opts]="{tweetLimit: 10}"></ng4-twitter-timeline> 
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
