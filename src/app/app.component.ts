@@ -10,26 +10,25 @@ import 'rxjs/add/operator/map';
 
 export class AppComponent {
   title = 'app';
-  private queryURL = "http://www.omdbapi.com/?t=Mr.Nobody&y=&plot=short&apikey=40e9cece";
+  private queryURL = "";
   data: any = {};
 
   constructor(private http: Http){
-    //console.log("I work");
-    this.getMovie();
-    this.getData();
   }
   
-  //make the get request to get the data from the api
-  getData(){
-    return this.http.get(this.queryURL).map((res: Response) => res.json())
-  }
-
-  //this function is a place to store the data that we got from the api request
-  getMovie(){
-    this.getData().subscribe(data => {
+  userInput(textInput){
+    console.log(textInput);
+    
+    //.trim to rempve any extra spacing at the two ends of the string
+    const movie = textInput.title.trim();
+    
+    this.queryURL = "http://www.omdbapi.com/?t="+movie+"&y=&plot=short&apikey=40e9cece";
+    
+    const getData= this.http.get(this.queryURL).map((res: Response) => res.json());
+    
+    getData.subscribe(data => {
       console.log(data);
-      this.data = data;     
-    })
-  }
+      this.data = data;
+    } 
+  )}
 }
-
