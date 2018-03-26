@@ -10,12 +10,12 @@ import 'rxjs/add/operator/map';
 
 export class AppComponent {
   title = 'app';
-  private queryURL = "https://api.giphy.com/v1/gifs/search?q=sucess&limit=10&api_key=dc6zaTOxFJmzC";
+  private queryURL = "http://www.omdbapi.com/?t=Mr.Nobody&y=&plot=short&apikey=40e9cece";
   data: any = {};
 
   constructor(private http: Http){
     //console.log("I work");
-    this.getGifs();
+    this.getMovie();
     this.getData();
   }
   
@@ -25,10 +25,10 @@ export class AppComponent {
   }
 
   //this function is a place to store the data that we got from the api request
-  getGifs(){
+  getMovie(){
     this.getData().subscribe(data => {
       console.log(data);
-      this.data = data;
+      this.data = data;     
     })
   }
 }
